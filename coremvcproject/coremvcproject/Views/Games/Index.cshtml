@@ -1,0 +1,45 @@
+﻿@model IEnumerable<coremvcproject.Models.Games>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.GamesId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GameName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReleaseDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.GamesId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GameName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReleaseDate)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.GamesId  },new{@class="btn btn-primary"}) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.GamesId },new{@class="btn btn-danger"})
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

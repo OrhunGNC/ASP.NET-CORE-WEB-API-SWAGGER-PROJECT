@@ -1,0 +1,48 @@
+﻿@model coremvcproject.Models.Developers
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+
+<h4>Developers</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group" style="display:none;">
+                <label asp-for="DevelopersId" class="control-label" ></label>
+                <input asp-for="DevelopersId" class="form-control" />
+                <span asp-validation-for="DevelopersId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DeveloperName" class="control-label"></label>
+                <input asp-for="DeveloperName" class="form-control" />
+                <span asp-validation-for="DeveloperName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FoundationDate" class="control-label"></label>
+                <input asp-for="FoundationDate" class="form-control" />
+                <span asp-validation-for="FoundationDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DeveloperValue" class="control-label"></label>
+                <input asp-for="DeveloperValue" class="form-control" />
+                <span asp-validation-for="DeveloperValue" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

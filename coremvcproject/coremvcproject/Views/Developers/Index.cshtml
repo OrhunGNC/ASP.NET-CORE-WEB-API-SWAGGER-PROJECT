@@ -1,0 +1,52 @@
+﻿@model IEnumerable<coremvcproject.Models.Developers>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DevelopersId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DeveloperName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FoundationDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DeveloperValue)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DevelopersId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeveloperName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FoundationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeveloperValue)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.DevelopersId },new{@class="btn btn-primary"}) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.DevelopersId },new{@class="btn btn-danger"})
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
